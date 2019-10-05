@@ -1,4 +1,4 @@
-import { link, pragma } from '../../src/engine/html'
+import { link, pragma, note } from '../../src/engine/html'
 import { set } from '../../src/engine/story'
 
 export function RandomPotion () {
@@ -7,10 +7,10 @@ export function RandomPotion () {
 
     return pragma`
 <div class='descriptive'><h3>${$randomPotion.titleReadout}</h3>${$randomPotion.descriptionReadout}</div>
-<blockquote>${$randomPotion.effectReadout}</blockquote>
+${note($randomPotion.effectReadout)}
 <<replace "#randpotion">>
 <div class='descriptive'><h3>${$randomPotion.titleReadout}</h3>${$randomPotion.descriptionReadout}
-<blockquote>${$randomPotion.effectReadout}</blockquote></div>
+${note($randomPotion.effectReadout)}</div>
 <</replace>>`
   })}
 <span id="randpotion"></span>`
